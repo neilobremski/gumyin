@@ -24,5 +24,23 @@ public class GameManager : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
         _goodGuy.Move(horizontalInput, verticalInput);
+        if (Input.GetButton("Cancel"))
+        {
+            QuitGame();
+        }
+    }
+
+    void QuitGame()
+    {
+#if UNITY_STANDALONE
+        //Quit the application
+        Application.Quit();
+#endif
+
+        //If we are running in the editor
+#if UNITY_EDITOR
+        //Stop playing the scene
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
     }
 }

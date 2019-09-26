@@ -87,4 +87,9 @@ public class BadGuy : MonoBehaviour
         Destroy(this.gameObject, 5f);
         return true;
     }
+
+    public void ChangeSpeed(float newSpeed)
+    {
+        this._speed = newSpeed;
+    }
 }
